@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}integer"/&gt;
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="internetOption" type="{http://www.ttu.ee/idu0075/2017/library}hasInternetUseOption"/&gt;
+ *         &lt;element name="internetOption" type="{http://www.ttu.ee/idu0075/2017/library}hasInternetUseOption" minOccurs="0"/&gt;
  *         &lt;element name="libraryBookList" type="{http://www.ttu.ee/idu0075/2017/library}libraryBookListType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -48,7 +48,6 @@ public class LibraryType {
     protected String name;
     @XmlElement(required = true)
     protected String address;
-    @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     protected HasInternetUseOption internetOption;
     @XmlElement(required = true)

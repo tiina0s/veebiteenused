@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="author" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="published" type="{http://www.w3.org/2001/XMLSchema}short"/&gt;
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -54,7 +54,6 @@ public class AddBookRequest {
     @XmlElement(required = true)
     protected String author;
     protected short published;
-    @XmlElement(required = true)
     protected String description;
 
     /**

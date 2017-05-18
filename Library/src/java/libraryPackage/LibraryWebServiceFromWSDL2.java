@@ -33,7 +33,6 @@ public class LibraryWebServiceFromWSDL2 {
     static int nextLibraryId = 1;
     static List<BookType> bookList = new ArrayList<BookType>();
     static List<LibraryType> libraryList = new ArrayList<LibraryType>();
-    static List<BigInteger> isbnList = new ArrayList<BigInteger>();
     
     public LibraryType getLibrary(ee.ttu.idu0075._2017.library.GetLibraryRequest parameter) {
        LibraryType lt = null;
@@ -84,18 +83,13 @@ public class LibraryWebServiceFromWSDL2 {
     public BookType addBook(AddBookRequest parameter) {
         BookType bt = new BookType();
         if (parameter.getToken().equalsIgnoreCase("salajane")) {
-         //   for (int i = 0; i < isbnList.size(); i++){
-           //     if (!parameter.getISBN().equals(isbnList.get(i))){
-                    bt.setISBN(parameter.getISBN());
-                    bt.setPublished(parameter.getPublished());
-                    bt.setDescription(parameter.getDescription());
-                    bt.setAuthor(parameter.getAuthor());
-                    bt.setId(BigInteger.valueOf(nextBookId++));
-                    bt.setTitle(parameter.getTitle());
-                    bookList.add(bt);
-                //    isbnList.add(bt.getISBN());
-            //    }
-         //   }
+            bt.setISBN(parameter.getISBN());
+            bt.setPublished(parameter.getPublished());
+            bt.setDescription(parameter.getDescription());
+            bt.setAuthor(parameter.getAuthor());
+            bt.setId(BigInteger.valueOf(nextBookId++));
+            bt.setTitle(parameter.getTitle());
+            bookList.add(bt);
         }
         return bt;
     }
@@ -103,8 +97,12 @@ public class LibraryWebServiceFromWSDL2 {
     public GetBookListResponse getBookList(GetBookListRequest parameter) {
         GetBookListResponse response = new GetBookListResponse();
         if (parameter.getToken().equalsIgnoreCase("salajane")) {
-            for (BookType bookType : bookList) {
-                response.getBook().add(bookType);
+            if (parameter.getAuthor() != null && parameter.getPublished() != null){
+                for (BookType bookType : bookList) {
+                    if (parameter.getAuthor().equals(bookType.getAuthor()) && parameter.getPublished().getYear()==bookType.getPublished()){
+                        response.getBook().add(bookType);
+                    }
+                }
             }
         }
         return response;

@@ -2,7 +2,6 @@
 package libraryPackage;
 
 import java.math.BigInteger;
-import java.time.Year;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -52,7 +51,7 @@ public class BookType {
     protected String title;
     @XmlElement(required = true)
     protected String author;
-    protected Year published;
+    protected short published;
     @XmlElement(required = true)
     protected String description;
 
@@ -156,7 +155,7 @@ public class BookType {
      * Gets the value of the published property.
      * 
      */
-    public Year getPublished() {
+    public short getPublished() {
         return published;
     }
 
@@ -164,7 +163,7 @@ public class BookType {
      * Sets the value of the published property.
      * 
      */
-    public void setPublished(Year value) {
+    public void setPublished(short value) {
         this.published = value;
     }
 

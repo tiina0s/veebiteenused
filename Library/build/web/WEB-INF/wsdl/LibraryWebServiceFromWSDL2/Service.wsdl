@@ -16,7 +16,7 @@
 					<xs:element name="id" type="xs:integer"/> 
 					<xs:element name="name" type="xs:string"/>
 					<xs:element name="address" type="xs:string"/>
-					<xs:element name="internetOption" type="tns:hasInternetUseOption"/>
+					<xs:element minOccurs="0" name="internetOption" type="tns:hasInternetUseOption"/>
                                         <xs:element name="libraryBookList" type="tns:libraryBookListType"/>
                                 </xs:sequence>
 			</xs:complexType>
@@ -28,7 +28,7 @@
 					<xs:element name="title" type="xs:string"/> 
 					<xs:element name="author" type="xs:string"/>
 					<xs:element name="published" type="xsd:short"/>
-					<xs:element name="description" type="xs:string"/>
+					<xs:element minOccurs="0" name="description" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -71,7 +71,7 @@
 						<xs:element name="token" type="xs:string"/>
 						<xs:element name="name" type="xs:string"/>
 						<xs:element name="address" type="xs:string"/>
-                                                <xs:element name="internetOption" type="tns:hasInternetUseOption"/>
+                                                <xs:element minOccurs="0" name="internetOption" type="tns:hasInternetUseOption"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -110,7 +110,7 @@
 						<xs:element name="title" type="xs:string"/>
 						<xs:element name="author" type="xs:string"/>
 						<xs:element name="published" type="xsd:short"/>
-						<xs:element name="description" type="xs:string"/>
+						<xs:element minOccurs="0" name="description" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -120,6 +120,8 @@
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="token" type="xs:string"/>
+                                                <xs:element name="author" type="xs:string"/>
+						<xs:element name="published" type="xs:gYear"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>

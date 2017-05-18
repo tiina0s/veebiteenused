@@ -118,6 +118,8 @@
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="token" type="xs:string"/>
+						<xs:element name="author" type="xs:string"/>
+						<xs:element name="published" type="xs:gYear"/>                                                
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
