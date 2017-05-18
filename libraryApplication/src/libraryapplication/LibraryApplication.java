@@ -9,7 +9,7 @@ import java.math.BigInteger;
 
 /**
  *
- * @author Kasutaja
+ * @author Kasutaja.
  */
 public class LibraryApplication {
 
